@@ -18,6 +18,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 170
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -111,6 +115,20 @@
             "optionalDependencies": 0,
             "totalDependencies": 2853
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "minimatch",
+            "lodash",
+            "moment",
+            "cli",
+            "marked",
+            "string",
+            "mime",
+            "superagent",
+            "https-proxy-agent"
+          ]
         }
       ],
       "outdated": [
@@ -820,6 +838,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 823
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -850,6 +875,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 10089
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -1039,6 +1068,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 91
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -1140,6 +1175,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 461
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -1537,6 +1578,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 444
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -1670,6 +1717,15 @@
             "optionalDependencies": 0,
             "totalDependencies": 620
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -2123,6 +2179,16 @@
             "optionalDependencies": 0,
             "totalDependencies": 349
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "mime",
+            "superagent",
+            "lodash",
+            "moment",
+            "https-proxy-agent"
+          ]
         }
       ],
       "outdated": [
@@ -2440,6 +2506,14 @@
             "optionalDependencies": 0,
             "totalDependencies": 807
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -2853,6 +2927,18 @@
             "optionalDependencies": 0,
             "totalDependencies": 4525
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash",
+            "ssri",
+            "hoek",
+            "cryptiles",
+            "sshpk",
+            "stringstream",
+            "deep-extend"
+          ]
         }
       ],
       "outdated": [
@@ -3026,6 +3112,15 @@
             "optionalDependencies": 0,
             "totalDependencies": 304
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -3415,6 +3510,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 512
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -3692,6 +3793,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 162
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -3761,6 +3866,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 1512
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -3958,6 +4067,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 10355
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "randomatic",
+            "deep-extend"
+          ]
         }
       ],
       "outdated": [
@@ -4123,6 +4239,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 10798
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "randomatic",
+            "deep-extend"
+          ]
         }
       ],
       "outdated": [
@@ -4280,7 +4403,12 @@
   {
     "hydra_client": "core",
     "checks": {
-      "audit": [],
+      "audit": [
+        {
+          "type": "uniqueAdvisories",
+          "data": []
+        }
+      ],
       "outdated": [
         {
           "type": "info",
@@ -4356,6 +4484,17 @@
             "optionalDependencies": 0,
             "totalDependencies": 4633
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "hoek",
+            "tunnel-agent",
+            "lodash",
+            "sshpk",
+            "stringstream",
+            "macaddress"
+          ]
         }
       ],
       "outdated": [
@@ -4585,6 +4724,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 604
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -4694,6 +4837,15 @@
             "optionalDependencies": 0,
             "totalDependencies": 348
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -5115,6 +5267,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 14879
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -5207,6 +5365,14 @@
                 "git+https://github.com/procore/core.git"
               ],
               [
+                "enzyme-adapter-react-16",
+                "1.6.0",
+                "1.7.0",
+                "1.7.0",
+                "dependencies",
+                "http://airbnb.io/enzyme/"
+              ],
+              [
                 "ramda",
                 "0.24.1",
                 "0.24.1",
@@ -5288,6 +5454,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 304
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -5397,6 +5569,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 312
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -5746,6 +5925,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 406
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -5879,6 +6064,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 1334
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string",
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -6156,6 +6348,14 @@
             "optionalDependencies": 0,
             "totalDependencies": 320
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -6449,6 +6649,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 499
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -6574,6 +6778,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 350
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -6651,6 +6859,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 100
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -6720,6 +6932,22 @@
             "optionalDependencies": 0,
             "totalDependencies": 11588
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash",
+            "hoek",
+            "sshpk",
+            "stringstream",
+            "randomatic",
+            "deep-extend",
+            "webpack-dev-server",
+            "url-parse",
+            "cryptiles",
+            "tunnel-agent",
+            "macaddress"
+          ]
         }
       ],
       "outdated": [
@@ -6965,7 +7193,38 @@
   {
     "hydra_client": "insights",
     "checks": {
-      "audit": [],
+      "audit": [
+        {
+          "type": "auditSummary",
+          "data": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 199,
+              "moderate": 149,
+              "high": 41,
+              "critical": 0
+            },
+            "dependencies": 28473,
+            "devDependencies": 0,
+            "optionalDependencies": 0,
+            "totalDependencies": 28473
+          }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash",
+            "hoek",
+            "sshpk",
+            "stringstream",
+            "deep-extend",
+            "randomatic",
+            "cryptiles",
+            "merge",
+            "tunnel-agent"
+          ]
+        }
+      ],
       "outdated": [
         {
           "type": "info",
@@ -7489,6 +7748,16 @@
             "optionalDependencies": 0,
             "totalDependencies": 1673
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "hoek",
+            "sshpk",
+            "stringstream",
+            "randomatic",
+            "deep-extend"
+          ]
         }
       ],
       "outdated": [
@@ -7519,6 +7788,17 @@
             "optionalDependencies": 0,
             "totalDependencies": 2275
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "moment",
+            "minimatch",
+            "lodash",
+            "cli",
+            "marked",
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -8068,6 +8348,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 480
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -8225,6 +8509,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 92
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -8294,6 +8582,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 3999
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "hoek"
+          ]
         }
       ],
       "outdated": [
@@ -8475,6 +8769,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 220
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -8560,6 +8860,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 353
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -8645,6 +8949,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 711
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -8818,6 +9126,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 15
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -8887,6 +9199,14 @@
             "optionalDependencies": 0,
             "totalDependencies": 392
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -9180,6 +9500,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 711
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -9393,6 +9717,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 120
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -9462,6 +9790,16 @@
             "optionalDependencies": 0,
             "totalDependencies": 566
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "mime",
+            "superagent",
+            "lodash",
+            "moment",
+            "https-proxy-agent"
+          ]
         }
       ],
       "outdated": [
@@ -9891,6 +10229,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 3949
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -9921,6 +10263,18 @@
             "optionalDependencies": 0,
             "totalDependencies": 344
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "minimatch",
+            "lodash",
+            "moment",
+            "cli",
+            "marked",
+            "superagent",
+            "mime"
+          ]
         }
       ],
       "outdated": [
@@ -10262,6 +10616,16 @@
             "optionalDependencies": 0,
             "totalDependencies": 569
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "debug",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -10515,6 +10879,14 @@
             "optionalDependencies": 0,
             "totalDependencies": 850
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -10832,6 +11204,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 3428
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -10957,6 +11333,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 3963
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "hoek"
+          ]
         }
       ],
       "outdated": [
@@ -11146,6 +11528,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 779
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string",
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -11487,6 +11876,15 @@
             "optionalDependencies": 0,
             "totalDependencies": 253
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "superagent",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -11748,6 +12146,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 901
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "lodash"
+          ]
         }
       ],
       "outdated": [
@@ -11905,6 +12309,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 475
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -12014,6 +12422,16 @@
             "optionalDependencies": 0,
             "totalDependencies": 953
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string",
+            "superagent",
+            "mime",
+            "lodash",
+            "moment"
+          ]
         }
       ],
       "outdated": [
@@ -12403,6 +12821,12 @@
             "optionalDependencies": 0,
             "totalDependencies": 793
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "string"
+          ]
         }
       ],
       "outdated": [
@@ -12592,6 +13016,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 1036
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -12765,6 +13193,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 597
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -12874,6 +13306,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 288
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -12943,6 +13379,19 @@
             "optionalDependencies": 0,
             "totalDependencies": 31978
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "randomatic",
+            "atob",
+            "sshpk",
+            "merge",
+            "hoek",
+            "deep-extend",
+            "stringstream",
+            "macaddress"
+          ]
         }
       ],
       "outdated": [
@@ -13053,8 +13502,8 @@
               [
                 "enzyme-adapter-react-16",
                 "1.1.1",
-                "1.6.0",
-                "1.6.0",
+                "1.7.0",
+                "1.7.0",
                 "dependencies",
                 "http://airbnb.io/enzyme/"
               ],
@@ -13284,6 +13733,13 @@
             "optionalDependencies": 0,
             "totalDependencies": 1000
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "moment",
+            "debug"
+          ]
         }
       ],
       "outdated": [
@@ -13473,6 +13929,29 @@
             "optionalDependencies": 0,
             "totalDependencies": 5904
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": [
+            "moment",
+            "lodash",
+            "debug",
+            "macaddress",
+            "no-case",
+            "marked",
+            "react-dev-utils",
+            "url-parse",
+            "mime",
+            "randomatic",
+            "deep-extend",
+            "hoek",
+            "sshpk",
+            "stringstream",
+            "tough-cookie",
+            "webpack-dev-server",
+            "fresh",
+            "forwarded"
+          ]
         }
       ],
       "outdated": [
@@ -13566,6 +14045,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 2454
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [
@@ -13651,6 +14134,10 @@
             "optionalDependencies": 0,
             "totalDependencies": 537
           }
+        },
+        {
+          "type": "uniqueAdvisories",
+          "data": []
         }
       ],
       "outdated": [

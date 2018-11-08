@@ -15,6 +15,10 @@ const execOptions = {
   maxBuffer: TEN_MEGA_BYTE
 };
 
+const onlyUnique = (value, index, self) => {
+  return self.indexOf(value) === index;
+};
+
 mkdirp(pathToSrc, mkSrcErr => {
   if (mkSrcErr) throw mkSrcErr;
   fs.readdir(pathToHydra, (readHydraErr, filenames) => {
@@ -106,9 +110,23 @@ mkdirp(pathToSrc, mkSrcErr => {
               console.log(e);
             }
 
-            formatted = formatted.filter(f => f.type === "auditSummary");
+            const advisoriesOnly = formatted.filter(
+              f => f.type === "auditAdvisory"
+            );
+            const uniqueAdvisories = advisoriesOnly
+              .map(ao => {
+                return ao.data.advisory.module_name;
+              })
+              .filter(onlyUnique);
+            const summariesOnly = formatted.filter(
+              f => f.type === "auditSummary"
+            );
+            const final = [
+              ...summariesOnly,
+              { type: "uniqueAdvisories", data: uniqueAdvisories }
+            ];
 
-            resolve({ audit: formatted });
+            resolve({ audit: final });
           });
         });
 
