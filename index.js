@@ -55,6 +55,17 @@ mkdirp(pathToSrc, mkSrcErr => {
     Promise.all([...copyFiles]).then(allFiles => {
       const gatherChecks = allFiles.map(file => {
         const directoryPath = path.dirname(file);
+
+        const checkTests = new Promise(resolve => {
+          fs.readFile(file, "utf8", function(err, data) {
+            if (err) throw err;
+            var obj = JSON.parse(data);
+
+            var hasTests = obj.scripts.test !== "true";
+            resolve({ tests: hasTests });
+          });
+        });
+
         const runOutdated = new Promise((resolve, reject) => {
           console.log("checking outdated packages...", file);
           process.chdir(directoryPath);
@@ -79,16 +90,6 @@ mkdirp(pathToSrc, mkSrcErr => {
           );
         });
 
-        const checkTests = new Promise(resolve => {
-          fs.readFile(file, "utf8", function(err, data) {
-            if (err) throw err;
-            var obj = JSON.parse(data);
-
-            var hasTests = obj.scripts.test !== "true";
-            resolve({ tests: hasTests });
-          });
-        });
-
         const runAudit = new Promise((resolve, reject) => {
           console.log("auditing dependencies...", file);
           process.chdir(directoryPath);
@@ -105,6 +106,8 @@ mkdirp(pathToSrc, mkSrcErr => {
               console.log(e);
             }
 
+            formatted = formatted.filter(f => f.type === "auditSummary");
+
             resolve({ audit: formatted });
           });
         });
@@ -116,7 +119,7 @@ mkdirp(pathToSrc, mkSrcErr => {
             const flattened = allChecks.reduce((a, c) => ({ ...a, ...c }));
 
             return {
-              name: directoryName,
+              hydra_client: directoryName,
               checks: flattened
             };
           }
@@ -139,41 +142,5 @@ mkdirp(pathToSrc, mkSrcErr => {
           throw auditError;
         });
     });
-
-    // const gatherBugsnags = filenames.map((filename) => {
-    //   var path = `${pathToHydra}/${filename}/package.json`
-    //   return new Promise((resolve) => {
-    //     fs.readFile(path, 'utf8', function (err, data) {
-    //       if (err) throw err;
-    //       var obj = JSON.parse(data);
-
-    //       resolve({
-    //         hydraClient: filename,
-    //         hasBugsnag: false,
-    //       });
-    //     });
-    //   });
-    // });
-
-    // Promise.all([...gatherTests, ...gatherBugsnags]).then((allFiles) => {
-    //   const grouped = lodash.groupBy(allFiles, 'hydraClient');
-    //   const final = Object.keys(grouped).map(key => {
-    //     const withoutName = grouped[key].reduce((acc, g) => {
-    //       const { hydraClient: currHC, ...currRest } = g;
-    //       const { hydraClient: accHC, ...accRest } = acc;
-
-    //       return {
-    //         ...accRest,
-    //         ...currRest,
-    //       };
-    //     });
-
-    //     return {
-    //       [key]: withoutName,
-    //     }
-    //   });
-
-    //   console.log(JSON.stringify(final, null, 2))
-    // }).catch(e => console.log(e));
   });
 });
