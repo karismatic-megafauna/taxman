@@ -8,6 +8,9 @@
     "build": "npm run clean && node index.js",
     "clean": "rm -rf .tmp"
   },
+  "bin": {
+    "taxman": "./index.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
