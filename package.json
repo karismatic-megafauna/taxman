@@ -11,10 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apps": "file:.tmp/hydra_clients/apps",
     "lodash": "^4.17.11",
-    "mkdirp": "^0.5.1",
-    "npm": "^6.4.1"
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "prettier": "1.14.3"
