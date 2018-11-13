@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const { exec } = require('child_process')
-const path = require('path')
-const mkdirp = require('mkdirp')
-const lodash = require('lodash')
+const fs = require("fs")
+const { exec } = require("child_process")
+const path = require("path")
+const mkdirp = require("mkdirp")
 const cliArg = process.argv.slice(2)
-const homedir = require('os').homedir()
-
+const homedir = require("os").homedir()
 const pathToHydra = cliArg[0]
-const pathToTmp = path.resolve(process.cwd(), '.tmp')
-const pathToSrc = path.resolve(pathToTmp, 'hydra_clients')
+const pathToTmp = path.resolve(process.cwd(), ".tmp")
+const pathToSrc = path.resolve(pathToTmp, "hydra_clients")
 const TEN_MEGA_BYTE = 1024 * 1024 * 10
 const execOptions = {
   maxBuffer: TEN_MEGA_BYTE,
@@ -24,20 +22,20 @@ mkdirp(pathToSrc, mkSrcErr => {
       const folderPath = path.resolve(pathToHydra, filename)
       const stats = fs.statSync(folderPath)
       if (!stats.isDirectory()) return false
-      return fs.existsSync(path.resolve(folderPath, 'package.json'))
+      return fs.existsSync(path.resolve(folderPath, "package.json"))
     })
     const copyFiles = foldersOnly.map(filename => {
       const oldHydraClientPath = path.resolve(pathToHydra, filename)
-      const oldLockPath = path.resolve(oldHydraClientPath, 'yarn.lock')
-      const oldPackagePath = path.resolve(oldHydraClientPath, 'package.json')
+      const oldLockPath = path.resolve(oldHydraClientPath, "yarn.lock")
+      const oldPackagePath = path.resolve(oldHydraClientPath, "package.json")
       const newHydraClientFolder = path.resolve(pathToSrc, filename)
       const newHydraClientPackagePath = path.resolve(
         newHydraClientFolder,
-        'package.json'
+        "package.json"
       )
       const newHydraClientLockPath = path.resolve(
         newHydraClientFolder,
-        'yarn.lock'
+        "yarn.lock"
       )
 
       return new Promise(resolve => {
@@ -70,20 +68,20 @@ mkdirp(pathToSrc, mkSrcErr => {
         const directoryPath = path.dirname(file)
 
         const checkTests = new Promise(resolve => {
-          fs.readFile(file, 'utf8', function(err, data) {
+          fs.readFile(file, "utf8", function(err, data) {
             if (err) throw err
             var obj = JSON.parse(data)
 
-            var hasTests = obj.scripts.test !== 'true'
+            var hasTests = obj.scripts.test !== "true"
             resolve({ tests: hasTests })
           })
         })
 
         const runOutdated = new Promise((resolve, reject) => {
-          console.log('checking outdated packages...', file)
+          console.log("checking outdated packages...", file)
           process.chdir(directoryPath)
           exec(
-            'yarn outdated --json',
+            "yarn outdated --json",
             execOptions,
             (yarnErr, stdout, stderr) => {
               console.log(yarnErr)
@@ -104,9 +102,9 @@ mkdirp(pathToSrc, mkSrcErr => {
         })
 
         const runAudit = new Promise((resolve, reject) => {
-          console.log('auditing dependencies...', file)
+          console.log("auditing dependencies...", file)
           process.chdir(directoryPath)
-          exec('yarn audit --json', execOptions, (yarnErr, stdout, stderr) => {
+          exec("yarn audit --json", execOptions, (yarnErr, stdout, stderr) => {
             console.log(yarnErr)
             console.log(stderr)
             let formatted = []
@@ -120,7 +118,7 @@ mkdirp(pathToSrc, mkSrcErr => {
             }
 
             const advisoriesOnly = formatted.filter(
-              f => f.type === 'auditAdvisory'
+              f => f.type === "auditAdvisory"
             )
             const set = new Set()
             const uniqueAdvisories = advisoriesOnly
@@ -138,11 +136,11 @@ mkdirp(pathToSrc, mkSrcErr => {
                 return true
               })
             const summariesOnly = formatted.filter(
-              f => f.type === 'auditSummary'
+              f => f.type === "auditSummary"
             )
             const final = [
               ...summariesOnly,
-              { type: 'uniqueAdvisories', data: uniqueAdvisories },
+              { type: "uniqueAdvisories", data: uniqueAdvisories },
             ]
 
             resolve({ audit: final })
