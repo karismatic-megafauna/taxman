@@ -15,7 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "depcheck": "^0.6.11",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0"
   },
   "devDependencies": {
     "prettier": "1.14.3"

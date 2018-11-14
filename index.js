@@ -4,6 +4,7 @@ const fs = require("fs")
 const { exec } = require("child_process")
 const path = require("path")
 const mkdirp = require("mkdirp")
+const ncp = require("ncp").ncp
 const cliArg = process.argv.slice(2)
 const homedir = require("os").homedir()
 const depcheck = require.resolve("depcheck")
@@ -30,6 +31,7 @@ mkdirp(pathToSrc, mkSrcErr => {
     })
     const copyFiles = foldersOnly.map(filename => {
       const oldHydraClientPath = path.resolve(pathToHydra, filename)
+      const oldSrcPath = path.resolve(oldHydraClientPath, "src")
       const oldLockPath = path.resolve(oldHydraClientPath, "yarn.lock")
       const oldPackagePath = path.resolve(oldHydraClientPath, "package.json")
       const newHydraClientFolder = path.resolve(pathToSrc, filename)
@@ -45,22 +47,25 @@ mkdirp(pathToSrc, mkSrcErr => {
       return new Promise(resolve => {
         mkdirp(newHydraClientFolder, mkdirErr => {
           if (mkdirErr) throw mkdirErr
-          fs.copyFile(oldLockPath, newHydraClientLockPath, cpLockErr => {
-            if (cpLockErr) throw cpLockErr
-            fs.copyFile(oldPackagePath, newHydraClientPackagePath, cpErr => {
-              if (cpErr) throw cpErr
+          ncp(oldSrcPath, newHydraClientFolder, srcErr => {
+            if (srcErr) throw srcErr
+            fs.copyFile(oldLockPath, newHydraClientLockPath, cpLockErr => {
+              if (cpLockErr) throw cpLockErr
+              fs.copyFile(oldPackagePath, newHydraClientPackagePath, cpErr => {
+                if (cpErr) throw cpErr
 
-              let newHydraClientPackageFile = require(newHydraClientPackagePath)
-              newHydraClientPackageFile.devDependencies = {}
-              fs.writeFile(
-                newHydraClientPackagePath,
-                JSON.stringify(newHydraClientPackageFile, null, 2),
-                err => {
-                  if (err) throw err
+                let newHydraClientPackageFile = require(newHydraClientPackagePath)
+                newHydraClientPackageFile.devDependencies = {}
+                fs.writeFile(
+                  newHydraClientPackagePath,
+                  JSON.stringify(newHydraClientPackageFile, null, 2),
+                  err => {
+                    if (err) throw err
 
-                  resolve(newHydraClientPackagePath)
-                }
-              )
+                    resolve(newHydraClientPackagePath)
+                  }
+                )
+              })
             })
           })
         })
