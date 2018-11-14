@@ -6,13 +6,17 @@ const path = require("path")
 const mkdirp = require("mkdirp")
 const cliArg = process.argv.slice(2)
 const homedir = require("os").homedir()
+const depcheck = require.resolve("depcheck")
+
 const pathToHydra = cliArg[0]
 const pathToTmp = path.resolve(process.cwd(), ".tmp")
 const pathToSrc = path.resolve(pathToTmp, "hydra_clients")
-const TEN_MEGA_BYTE = 1024 * 1024 * 10
+const TEN_MEGA_BYTE = 1024 * 1024 * 100
 const execOptions = {
   maxBuffer: TEN_MEGA_BYTE,
 }
+
+const binDepcheck = path.resolve(depcheck, "../../bin/depcheck")
 
 mkdirp(pathToSrc, mkSrcErr => {
   if (mkSrcErr) throw mkSrcErr
@@ -78,7 +82,7 @@ mkdirp(pathToSrc, mkSrcErr => {
         })
 
         const runOutdated = new Promise((resolve, reject) => {
-          console.log("checking outdated packages...", file)
+          console.log("checking outdated packages...\n", file)
           process.chdir(directoryPath)
           exec(
             "yarn outdated --json",
@@ -101,8 +105,32 @@ mkdirp(pathToSrc, mkSrcErr => {
           )
         })
 
+        const runDepcheck = new Promise((resolve, reject) => {
+          console.log("checking dependencies...\n", file)
+          process.chdir(directoryPath)
+          exec(
+            `${binDepcheck} --json`,
+            execOptions,
+            (yarnErr, stdout, stderr) => {
+              console.log(yarnErr)
+              console.log(stderr)
+              let formatted = []
+              try {
+                formatted = stdout
+                  .trim()
+                  .split(/\r?\n/)
+                  .map(f => JSON.parse(f))
+              } catch (e) {
+                throw e
+              }
+
+              resolve({ unusedDependencies: formatted[0].dependencies })
+            }
+          )
+        })
+
         const runAudit = new Promise((resolve, reject) => {
-          console.log("auditing dependencies...", file)
+          console.log("auditing dependencies...\n", file)
           process.chdir(directoryPath)
           exec("yarn audit --json", execOptions, (yarnErr, stdout, stderr) => {
             console.log(yarnErr)
@@ -147,18 +175,21 @@ mkdirp(pathToSrc, mkSrcErr => {
           })
         })
 
-        return Promise.all([runAudit, runOutdated, checkTests]).then(
-          allChecks => {
-            const directoryName = path.basename(directoryPath)
+        return Promise.all([
+          runAudit,
+          runOutdated,
+          runDepcheck,
+          checkTests,
+        ]).then(allChecks => {
+          const directoryName = path.basename(directoryPath)
 
-            const flattened = allChecks.reduce((a, c) => ({ ...a, ...c }))
+          const flattened = allChecks.reduce((a, c) => ({ ...a, ...c }))
 
-            return {
-              hydra_client: directoryName,
-              checks: flattened,
-            }
+          return {
+            hydra_client: directoryName,
+            checks: flattened,
           }
-        )
+        })
       })
 
       Promise.all(gatherChecks)
